@@ -1,13 +1,24 @@
 
-string_var = "Hola clase de electiva"
-integer_var = 123
-float_var = 123.24
+welcomeMessage = "BIENVENIDO"
 
-print(string_var)
-print(type(string_var))
+print (welcomeMessage,"\nEn este programa podra realizar la suma de dos números enteros y decimales")
 
-print(integer_var)
-print(type(integer_var))
+#SUMAR DOS NUMEROS ENTEROS
+print("**Suma de dos números enteros**")
+print("Ingrese el primer número:")
+num1 = input ()
+print("Ingrese el segundo número:")
+num2 = input ()
+firstNum = int(num1)
+secondNum = int(num2)
+print ("El resultado de ",firstNum,"+", secondNum, "=", firstNum + secondNum,"\n")
 
-print(float_var)
-print(type(float_var))
+#SUMAR DOS NUMEROS DECIMALES
+print("**Suma de dos números decimales**")
+print("Ingrese el primer número:")
+num3 = input ()
+print("Ingrese el segundo número:")
+num4 = input ()
+thirdtNum = float(num3)
+fourNum = float(num4)
+print ("El resultado de ",thirdtNum,"+", fourNum, "=", thirdtNum + fourNum)
