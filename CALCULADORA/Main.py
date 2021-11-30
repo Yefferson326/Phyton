@@ -14,7 +14,10 @@ def getNumTwo():
     print("Ingrese el segundo número")
     num2 = float(input("-->"))
     return num2
-
+def checkContinue ():
+    print("Desea realizar otra operacion\n1.SI\n2.NO")
+    repeat = int(input("-->"))
+    return repeat
 print("\t\t#####Es este programa podras realizar operaciones basicas para dos numeros#####")
 repeat = 1
 num1= float()
@@ -28,22 +31,19 @@ while (repeat == 1):
         num1= getNumOne()
         num2= getNumTwo()
         print("\t",num1," + ",num2," = ",num1+num2)
-        print("Desea realizar otra operacion\n1.SI\n2.NO")
-        repeat = int(input("-->"))
+        repeat =  checkContinue()
     elif operation == 2:
         print("\t\t##RESTA##")
         num1= getNumOne()
         num2= getNumTwo()
         print("\t",num1, " - ", num2, " = ", num1 - num2)
-        print("Desea realizar otra operacion\n1.SI\n2.NO")
-        repeat = int(input("-->"))
+        repeat =  checkContinue()
     elif operation == 3:
         print("\t\t##MULTIPLICACION##")
         num1 = getNumOne()
         num2 = getNumTwo()
         print("\t",num1, " x ", num2, " = ", num1 * num2)
-        print("Desea realizar otra operacion\n1.SI\n2.NO")
-        repeat = int(input("-->"))
+        repeat =  checkContinue()
     elif operation == 4:
         checkDivisor = 1
         while checkDivisor == 1:
@@ -55,8 +55,7 @@ while (repeat == 1):
             else:
                 break
         print("\t",num1, "/", num2, "=", num1 / num2)
-        print("Desea realizar otra operacion\n1.SI\n2.NO")
-        repeat = int(input("-->"))
+        repeat = checkContinue()
     else:
         print("\t¡¡Opcion incorrecta¡¡\n\t  Intente de nuevo")
         repeat = 1
