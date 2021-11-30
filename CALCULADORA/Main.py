@@ -1,62 +1,85 @@
-print(" _______   _______  __       _______  __    __   __       _______   ___    _______   ______  _______")
-print("|   ____| |   _   ||  |     |   ____||  |  |  | |  |     |   _   | |   \  |       | |   _  ||   _   |")
-print("|  |      |  |_|  ||  |     |  |     |  |  |  | |  |     |  |_|  | | |\ \ |   _   | |  |_| ||  |_|  |")
-print("|  |      |   _   ||  |     |  |     |  |  |  | |  |     |   _   | | | \ \|  | |  | |    __||   _   |")
-print("|  |      |  | |  ||  |     |  |     |  |  |  | |  |     |  | |  | | | / /|  |_|  | |    \  |  | |  |")
-print("|  |____  |  | |  ||  |____ |  |____ |  |__|  | |  |____ |  | |  | | |/ / |       | |  |\ \ |  | |  |")
-print("|_______| |__| |__||_______||_______||________| |_______||__| |__| |___/  |_______| |__| |_\|__| |__|")
+def print_message_welcome():
+    print(" _______   _______  __       _______  __    __   __       _______   ___    _______   ______  _______")
+    print("|   ____| |   _   ||  |     |   ____||  |  |  | |  |     |   _   | |   \  |       | |   _  ||   _   |")
+    print("|  |      |  |_|  ||  |     |  |     |  |  |  | |  |     |  |_|  | | |\ \ |   _   | |  |_| ||  |_|  |")
+    print("|  |      |   _   ||  |     |  |     |  |  |  | |  |     |   _   | | | \ \|  | |  | |    __||   _   |")
+    print("|  |      |  | |  ||  |     |  |     |  |  |  | |  |     |  | |  | | | / /|  |_|  | |    \  |  | |  |")
+    print("|  |____  |  | |  ||  |____ |  |____ |  |__|  | |  |____ |  | |  | | |/ / |       | |  |\ \ |  | |  |")
+    print("|_______| |__| |__||_______||_______||________| |_______||__| |__| |___/  |_______| |__| |_\|__| |__|")
+    print("\t\t#####Es este programa podras realizar operaciones basicas para dos numeros#####")
 
-def getNumOne ():
+
+def request_number_one():
     print("Ingrese el primer número")
-    num1 = float(input("-->"))
-    return  num1
-def getNumTwo():
+    number_one = float(input("-->"))
+    return number_one
+
+
+def request_number_two():
     print("Ingrese el segundo número")
-    num2 = float(input("-->"))
-    return num2
-def checkContinue ():
+    number_two = float(input("-->"))
+    return number_two
+
+
+def check_continue():
     print("Desea realizar otra operacion\n1.SI\n2.NO")
-    repeat = int(input("-->"))
-    return repeat
-print("\t\t#####Es este programa podras realizar operaciones basicas para dos numeros#####")
-repeat = 1
-num1= float()
-num2= float()
-while (repeat == 1):
+    return int(input("-->"))
+
+
+def message_menu():
     print("¿Que operacion desea realizar?")
-    print("1.SUMA\n2.RESTA\n3.MULTIPLICACION\n4.DIVISION")
-    operation= int(input("-->"))
-    if operation == 1:
-        print("\t\t##SUMA##")
-        num1= getNumOne()
-        num2= getNumTwo()
-        print("\t",num1," + ",num2," = ",num1+num2)
-        repeat =  checkContinue()
-    elif operation == 2:
-        print("\t\t##RESTA##")
-        num1= getNumOne()
-        num2= getNumTwo()
-        print("\t",num1, " - ", num2, " = ", num1 - num2)
-        repeat =  checkContinue()
-    elif operation == 3:
-        print("\t\t##MULTIPLICACION##")
-        num1 = getNumOne()
-        num2 = getNumTwo()
-        print("\t",num1, " x ", num2, " = ", num1 * num2)
-        repeat =  checkContinue()
-    elif operation == 4:
-        checkDivisor = 1
-        while checkDivisor == 1:
+    print("1.SUMA\n2.RESTA\n3.MULTIPLICACION\n4.DIVISION\n5.SALIR")
+    return int(input("-->"))
+
+
+def operation_sum():
+    print("\t\t##SUMA##")
+    num_one = request_number_one()
+    num_two = request_number_two()
+    print("\t", num_one, " + ", num_two, " = ", num_one + num_two)
+
+
+def operation_rest():
+    print("\t\t##RESTA##")
+    num_one = request_number_one()
+    num_two = request_number_two()
+    print("\t", num_one, " - ", num_two, " = ", num_one - num_two)
+
+
+def operation_multiplication():
+    print("\t\t##MULTIPLICACION##")
+    num_one = request_number_one()
+    num_two = request_number_two()
+    print("\t", num_one, " x ", num_two, " = ", num_one * num_two)
+
+
+print_message_welcome()
+repeat = 1
+while repeat == 1:
+    user_option = message_menu()
+    if user_option == 1:
+        operation_sum()
+        repeat = check_continue()
+    elif user_option == 2:
+        operation_rest()
+        repeat = check_continue()
+    elif user_option == 3:
+        operation_multiplication()
+        repeat = check_continue()
+    elif user_option == 4:
+        check_divider = 1
+        while check_divider == 1:
             print("\t\t##DIVISION##")
-            num1 = getNumOne()
-            num2 = getNumTwo()
-            if num2 == 0:
-                print("\t¡¡El resultado de ",num1," entre ",num2," da un valor indefinido¡¡\n\t<<Por favor ingrese un valor para el divisor diferente de 0>>\n")
+            dividend = request_number_one()
+            divider = request_number_two()
+            if divider == 0:
+                print("\t¡¡El resultado de ", dividend, " entre ", divider, " da un valor indefinido¡¡\n\t<<Por favor ingrese un valor para el divisor diferente de 0>>\n")
             else:
                 break
-        print("\t",num1, "/", num2, "=", num1 / num2)
-        repeat = checkContinue()
+        print("\t", dividend, "/", divider, "=", dividend / divider)
+        repeat = check_continue()
+    elif user_option == 5:
+        break
     else:
         print("\t¡¡Opcion incorrecta¡¡\n\t  Intente de nuevo")
-        repeat = 1
 print("¡¡HASTA PRONTO¡¡")
