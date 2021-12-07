@@ -53,6 +53,21 @@ def operation_multiplication():
     print("\t", num_one, " x ", num_two, " = ", num_one * num_two)
 
 
+def operation_division():
+    check_divider = 1
+    while check_divider == 1:
+        print("\t\t##DIVISION##")
+        dividend = request_number_one()
+        divider = request_number_two()
+        if divider == 0:
+            print("\t¡¡El resultado de ", dividend, " entre ", divider,
+                  " da un valor indefinido¡¡\n\t<<Por favor ingrese un valor para el divisor diferente de 0>>\n")
+        else:
+            break
+    print("\t", dividend, "/", divider, "=", dividend / divider)
+    return check_continue()
+
+
 print_message_welcome()
 repeat = 1
 while repeat == 1:
@@ -67,17 +82,7 @@ while repeat == 1:
         operation_multiplication()
         repeat = check_continue()
     elif user_option == 4:
-        check_divider = 1
-        while check_divider == 1:
-            print("\t\t##DIVISION##")
-            dividend = request_number_one()
-            divider = request_number_two()
-            if divider == 0:
-                print("\t¡¡El resultado de ", dividend, " entre ", divider, " da un valor indefinido¡¡\n\t<<Por favor ingrese un valor para el divisor diferente de 0>>\n")
-            else:
-                break
-        print("\t", dividend, "/", divider, "=", dividend / divider)
-        repeat = check_continue()
+        repeat = operation_division()
     elif user_option == 5:
         break
     else:
