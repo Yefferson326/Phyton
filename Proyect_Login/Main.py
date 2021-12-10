@@ -1,14 +1,25 @@
-from cleaner import cleaning
 
 def message_welcome():
-    print(" ___       _________  __________  ____  ___     ___")
-    print("|   |     |         ||          ||    ||   \   |   |")
-    print("|   |     |   ___   ||    ______||____||    \  |   |")
-    print("|   |     |  |   |  ||   |______  ____ |     \ |   |")
-    print("|   |     |  |   |  ||    ___   ||    ||      \|   |")
-    print("|   |____ |  |___|  ||   |   |  ||    ||   |\      |")
-    print("|        ||         ||   |___|  ||    ||   | \     |")
-    print("|________||_________||__________||____||___|  \____|")
+    print("\t\t ___       _________  __________  ____  ___     ___")
+    print("\t\t|   |     |         ||          ||    ||   \   |   |")
+    print("\t\t|   |     |   ___   ||    ______||____||    \  |   |")
+    print("\t\t|   |     |  |   |  ||   |______  ____ |     \ |   |")
+    print("\t\t|   |     |  |   |  ||    ___   ||    ||      \|   |")
+    print("\t\t|   |____ |  |___|  ||   |   |  ||    ||   |\      |")
+    print("\t\t|        ||         ||   |___|  ||    ||   | \     |")
+    print("\t\t|________||_________||__________||____||___|  \____|")
+
+
+def message_no_access():
+    print("\n\t\t\t\t\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C")
+    print("\t\t\t\t  REGISTRO INCORRECTO")
+    print("\t\t\t\t\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C\U0000274C")
+
+
+def message_access():
+    print("\n\t\t\t\t\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611")
+    print("\t\t\t\t REGISTRO CORRECTO")
+    print("\t\t\t\t\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611\U00002611")
 
 
 def validate_email(email):
@@ -27,64 +38,62 @@ def validate_email(email):
     if valid_email:
         return valid_email
     else:
-        print("¡¡USUARIO INCORRECTO!!\nPor favor ingreselo de nuevo")
+        print("\t   ¡¡USUARIO INCORRECTO!!\n\t\U000026A0Por favor ingreselo de nuevo\U000026A0")
         return valid_email
 
 
 def valid_password(password):
-    valid_password = False
+    check_password = False
     valid_long = 0
-    while valid_password == False:
+    while check_password == False:
         for n in password:
             valid_long += 1
         if valid_long >= 8:
-            print("Contraseña Valida")
-            valid_password = True
+            check_password = True
         else:
-            print("Tenga en cuenta que la constraseña debe ser de minimo 8 caracteres\nINGRESELA DE NUEVO")
+            print("\t\U000026A0Tenga en cuenta que la constraseña debe ser de minimo 8 caracteres\U000026A0")
 
-        if valid_password:
-            return valid_password
+        if check_password:
+            return check_password
         else:
-            print("¡¡USUARIO INCORRECTO!!\nPor favor ingreselo de nuevo")
+            print("\t\t\t\t¡¡INGRESA DE NUEVO LA CONSTRASEÑA¡¡")
+            return check_password
 
 
-def data_emails():
-    registered_email = ["yefferson.nunez@uptc.edu.co", "Juan123@hotmail.com", "pepito753@gmail.com"]
-    return registered_email
-
-
-def data_passwords():
-    passwords = ["123456", "Larompecorazones", "Solochico"]
-    return passwords
-
-
-def valid_data_base(email_user,password_user):
-    passwords = data_passwords()
-    emails = data_emails()
+def valid_data_base(email_user, password_user):
+    registered_email = ['yefferson.nunez@uptc.edu.co', 'Juan123@hotmail.com', 'pepito753@gmail.com']
+    passwords = ['12345678', 'Larompecorazones', 'Solochico']
     check_email = False
     check_password = False
 
-    for n in emails:
-        for i in emails[n]:
-            for d in Email:
-                if email_user[d] == emails[n]:
-                    check_email = True
-                    for n in passwords:
-                        for b in passwords[n]:
-                            for c in password_user:
-                                if password_user[c] == passwords[b]:
-                                    check_password = True
-                                    print("!!Ingreso completado con exito!!")
-                                else:
-                                    print ("!!El usuario o la contraseña no se encuentran en la base de datos por favor introduzcalos de nuevo!!")
+    for email_select in registered_email:
+        if email_user == email_select:
+            check_email = True
+            print("\t\t\U00002705El correo se encuentra en la base de datos\U00002705")
+            position = registered_email.index(email_select)
+            break
+
+    if check_email != True:
+        print("\t\t\U000026A0El correo no se encuentra en la base de datos\U000026A0\n\t\t\t    ¡¡POR FAVOR VERIFIQUE EL CORREO¡¡")
+        message_no_access()
+    #Verifica si existe un email para poder mirar la respectiva contraseña de dicho email registrado
+    if check_email == True:
+        if passwords[position] == password_user:
+            print("\t\t\t\U00002705Constraseña correcta\U00002705")
+            message_access()
+        else:
+            print("\t\t\t\U000026A0Constraseña incorrecta\U000026A0")
+            message_no_access()
 
 
 message_welcome()
-validate_ = False
-while validate == False:
+password_correct = False
+email_correct = False
+while email_correct == False:
     Email = str(input("Digite la direccion de correo electronico\n-> "))
-    validate = validate_email(Email)
+    email_correct = validate_email(Email)
+while password_correct == False:
+    password = str(input("Digite la constraseña:\n->"))
+    password_correct = valid_password(password)
 
-password = str(input("Digite la constraseña:\n->"))
-valid_password(password)
+valid_data_base(Email,password)
