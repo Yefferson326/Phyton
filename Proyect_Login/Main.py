@@ -62,7 +62,7 @@ def valid_password(password):
 
 def valid_data_base(email_user, password_user):
     registered_email = ['yefferson.nunez@uptc.edu.co', 'Juan123@hotmail.com', 'pepito753@gmail.com']
-    passwords = ['12345678', 'Larompecorazones', 'Solochico']
+    passwords = ['12345678', 'Juan123#', 'Contraseña']
     check_email = False
     check_password = False
 
