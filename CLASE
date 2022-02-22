@@ -1,0 +1,25 @@
+
+ def Cicle_for():
+    print ("Ingrese una palabra para verificar si es palindroma:")
+    word = str(input())
+    result = ""
+      # reversed() or word[::-1] pára invertir el string
+    for j in reversed(word):
+        result =+ i
+
+    if result == word:
+        print ("buena")
+    else:
+        print ("error")
+        
+        
+# Cicle_for()  
+
+ def Cicle_while():
+     x = 0
+     while x != 10:
+         print (x)
+         x = random.randint(1,11) # genera un numero aleatorio en ese intervalo
+     print ("Buena")
+     
+Cicle_while()
