@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<Contacts>
+<Contacto1>
+	<apellido>Perez</apellido>
+	<apodo>Yo</apodo>
+	<nombre>Yeffer</nombre>
+	<telefono>123</telefono>
+</Contacto1><Contacto2>
+	<apellido>Gonzales</apellido>
+	<apodo>Amigo</apodo>
+	<nombre>Juan</nombre>
+	<telefono>789</telefono>
+</Contacto2><Contacto3>
+	<apellido>Ester</apellido>
+	<apodo>Amiga</apodo>
+	<nombre>Luz</nombre>
+	<telefono>65432</telefono>
+</Contacto3>
+</Contacts>

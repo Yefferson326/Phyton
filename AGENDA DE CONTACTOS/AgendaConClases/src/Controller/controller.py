@@ -2,8 +2,8 @@ from src.view.view import View
 from src.Models.contact import Contact
 import json
 from dict2xml import dict2xml
-import xml.etree.ElementTree
 import xmltodict
+
 
 class Agenda:
     def __init__(self):
@@ -271,19 +271,3 @@ class Agenda:
                     break
             else:
                 self.vista.error()
-
-
-def load_json(path: str) -> dict:
-    if path.endswith(".json"):
-        print(f"> Loading JSON from '{path}'")
-        with open(path, mode="r") as open_file:
-            content = open_file.read()
-
-        return json.loads(content)
-    elif path.endswith(".xml"):
-        print(f"> Loading XML as JSON from '{path}'")
-        Docxml = xml.etree.ElementTree.tostring(xml.etree.ElementTree.parse(path).getroot())
-        return xmltodict.parse(Docxml, attr_prefix="@", cdata_key="#text", dict_constructor=dict)
-
-    print(f"> Loading failed for '{path}'")
-    return {}
