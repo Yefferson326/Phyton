@@ -1,4 +1,4 @@
-from Agenda_con_clases import funciones_generales
+import funciones_generales
 Contacts = []
 
 
