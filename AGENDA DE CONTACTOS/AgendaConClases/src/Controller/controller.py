@@ -174,11 +174,9 @@ class Agenda:
             contactsOrder = sorted(self.Contacts, key=lambda contact: contact.nombre)
             for contact in contactsOrder:
                 i += 1
-                self.vista.showContacts(i,contact)
+                self.vista.showContacts(i, contact)
         if a == 1:
             self.vista.pulseForContinue()
-        else:
-            pass
 
     def uploadContacts(self):
         if not self.Contacts:
@@ -227,16 +225,15 @@ class Agenda:
                 try:
                     with open(f"data/{nameFile}.json", "r") as fp:
                         data = json.load(fp)
-
                     for contact in data:
-                        self.Contacts.append(
-                            Contact(
-                                nombre=contact["nombre"],
-                                apellido=contact["apellido"],
-                                apodo=contact["apodo"],
-                                telefono=contact["telefono"]
+                        if not self.existPhone(contact["telefono"]):
+                            self.Contacts.append(Contact(
+                                    nombre=contact["nombre"],
+                                    apellido=contact["apellido"],
+                                    apodo=contact["apodo"],
+                                    telefono=contact["telefono"]
+                                )
                             )
-                        )
                     self.vista.messageUploadCorrect()
                     self.vista.pulseForContinue()
                     break
@@ -254,14 +251,14 @@ class Agenda:
                     list = dict(my_ordered_dict['Contacts'])
                     contacts = list.values()
                     for contact in contacts:
-                        self.Contacts.append(
-                            Contact(
+                        if not self.existPhone(int(contact["telefono"])):
+                            self.Contacts.append(Contact(
                                 nombre=contact["nombre"],
                                 apellido=contact["apellido"],
                                 apodo=contact["apodo"],
                                 telefono=contact["telefono"]
                             )
-                        )
+                            )
                     self.vista.messageUploadCorrect()
                     self.vista.pulseForContinue()
                     break
@@ -271,3 +268,12 @@ class Agenda:
                     break
             else:
                 self.vista.error()
+
+    def existPhone(self, number):
+        result = False
+        for contactSaved in self.Contacts:
+            if contactSaved.telefono == number:
+                result = True
+                break
+        return result
+
