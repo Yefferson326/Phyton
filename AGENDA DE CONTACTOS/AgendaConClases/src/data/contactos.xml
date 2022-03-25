@@ -1,20 +1,43 @@
 <?xml version='1.0' encoding='utf-8'?>
 
+<Agenda>
 <Contacts>
 <Contacto1>
-	<apellido>Perez</apellido>
-	<apodo>Yo</apodo>
-	<nombre>Yeffer</nombre>
-	<telefono>123</telefono>
+	<apellido>nuñez</apellido>
+	<apodo>yo</apodo>
+	<birthdayDay>26</birthdayDay>
+	<birthdayMonth>3</birthdayMonth>
+	<email>yefferson.nunez@uptc.edu.co</email>
+	<nombre>yeffer</nombre>
+	<numeroextra1>3108866442</numeroextra1>
+	<numeroextra2>3108866552</numeroextra2>
+	<numerosextras>2</numerosextras>
+	<telefono>3013700550</telefono>
 </Contacto1><Contacto2>
-	<apellido>Gonzales</apellido>
-	<apodo>Amigo</apodo>
-	<nombre>Juan</nombre>
-	<telefono>789</telefono>
+	<apellido>perez</apellido>
+	<apodo>amigo</apodo>
+	<birthdayDay>25</birthdayDay>
+	<birthdayMonth>3</birthdayMonth>
+	<email>juan123@gmail.com</email>
+	<nombre>juan</nombre>
+	<numerosextras>0</numerosextras>
+	<telefono>3125468794</telefono>
 </Contacto2><Contacto3>
-	<apellido>Ester</apellido>
-	<apodo>Amiga</apodo>
-	<nombre>Luz</nombre>
-	<telefono>65432</telefono>
+	<apellido>lopez</apellido>
+	<apodo>compañera</apodo>
+	<birthdayDay>25</birthdayDay>
+	<birthdayMonth>3</birthdayMonth>
+	<email>jauna@gmail.com</email>
+	<nombre>juana</nombre>
+	<numerosextras>0</numerosextras>
+	<telefono>3241564895</telefono>
 </Contacto3>
-</Contacts>
+</Contacts><Groups>
+<Grupo1>
+	<miembro1>3013700550</miembro1>
+	<miembro2>3241564895</miembro2>
+	<nombre_del_grupo>1</nombre_del_grupo>
+	<numerosdemiembros>2</numerosdemiembros>
+</Grupo1>
+</Groups>
+</Agenda>
