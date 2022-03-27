@@ -37,6 +37,7 @@ def operation_sum():
     num_one = request_number_one()
     num_two = request_number_two()
     print("\t", num_one, " + ", num_two, " = ", num_one + num_two)
+    return check_continue()
 
 
 def operation_rest():
@@ -44,6 +45,7 @@ def operation_rest():
     num_one = request_number_one()
     num_two = request_number_two()
     print("\t", num_one, " - ", num_two, " = ", num_one - num_two)
+    return check_continue()
 
 
 def operation_multiplication():
@@ -51,6 +53,7 @@ def operation_multiplication():
     num_one = request_number_one()
     num_two = request_number_two()
     print("\t", num_one, " x ", num_two, " = ", num_one * num_two)
+    return check_continue()
 
 
 def operation_division():
@@ -68,23 +71,24 @@ def operation_division():
     return check_continue()
 
 
+def error():
+    print("\t¡¡Opcion incorrecta¡¡\n\t  Intente de nuevo")
+
+
+def option_select(user_option):
+    menu = {
+        1: operation_sum,
+        2: operation_rest,
+        3: operation_multiplication,
+        4: operation_division
+    }
+    operation = menu.get(user_option,error)
+    return operation()
+
+
 print_message_welcome()
 repeat = 1
 while repeat == 1:
     user_option = message_menu()
-    if user_option == 1:
-        operation_sum()
-        repeat = check_continue()
-    elif user_option == 2:
-        operation_rest()
-        repeat = check_continue()
-    elif user_option == 3:
-        operation_multiplication()
-        repeat = check_continue()
-    elif user_option == 4:
-        repeat = operation_division()
-    elif user_option == 5:
-        break
-    else:
-        print("\t¡¡Opcion incorrecta¡¡\n\t  Intente de nuevo")
+    repeat = option_select(user_option)
 print("¡¡HASTA PRONTO¡¡")
